@@ -1,1 +1,0 @@
-screen -dmS talkkonnect-radio /home/talkkonnect/talkkonnect-run && sleep 10 && curl http://localhost:8080/?command=StartTransmitting &

@@ -1,3 +1,0 @@
-/home/pi/OSIDS/talkkonnect/rebuild.sh & #start rebuild
-webhook -hooks /home/pi/osids/annunciator/hooks.json & #start annunciator
-screen -dmS talkkonnect-radio /home/talkkonnect/talkkonnect-run && sleep 10 && curl http://localhost:8080/?command=StartTransmitting & #start talkkonect with transmit mode on
