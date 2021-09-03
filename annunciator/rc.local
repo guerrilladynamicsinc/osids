@@ -1,0 +1,3 @@
+webhook -hooks /home/pi/OSIDS/annunciator/hooks.json -verbose &
+/home/pi/OSIDS/talkkonnect/rebuild.sh && sleep 10 &
+screen -dmS talkkonnect-radio /home/talkkonnect/talkkonnect-run && sleep 10 && curl http://localhost:8080/?command=StartTransmitting && curl http://localhost:8080/?command=RepeatTxLoop &

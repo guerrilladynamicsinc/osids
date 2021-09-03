@@ -1,0 +1,1 @@
+@reboot sleep 30 && /home/pi/OSIDS/annunciator/start.sh

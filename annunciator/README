@@ -1,0 +1,12 @@
+Mumble Annunciator
+Guerrilla Dynamics
+Send text to speech (TTS) from a webhook to a mumble server.
+Use hand in hand with the transceiver to do tts -> rf.
+
+Install pico2wave
+
+webhook -hooks hooks.json -verbose & #runs the webhook server
+
+IMPORTANT NOTE:
+Use tts2.sh as the binary for hooks.json if you have a usb soundcard to use directly with a transceiver on a single unit.
+use the normal tts.sh if its a headless rpi serving as solely an annunciator.

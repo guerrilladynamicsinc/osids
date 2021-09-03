@@ -1,0 +1,38 @@
+database:
+  path: /media/frigate/frigate.db
+detectors:
+  coral:
+    type: edgetpu
+    device: ''
+mqtt:
+  host: 192.168.1.96
+  port: 1883
+  topic_prefix: frigate
+  client_id: frigate
+
+cameras:
+  entrance:
+    ffmpeg:
+      inputs:
+        - path: rtsp://rtsp:rtsp123456!@192.168.1.19/media/video2
+          roles:
+            - detect
+    snapshots:
+      enabled: True
+      timestamp: False
+      bounding_box: True
+      crop: True
+      retain:
+        default: 120
+
+    width: 720
+    height: 576
+    fps: 5
+
+
+objects:
+  track:
+    - person
+    - cat
+    - car
+    - truck

@@ -1,0 +1,97 @@
+database:
+  path: /media/frigate/frigate.db
+detectors:
+  cpu1:
+    type: cpu
+mqtt:
+  host: 192.168.1.181
+  port: 1883
+  topic_prefix: frigate
+  client_id: frigate
+
+cameras:
+  entrance:
+    ffmpeg:
+      inputs:
+        - path: rtsp://ai:ai123456@192.168.1.198:7001/dbeba7ec-6e25-856c-395b-d4b3993d2446?stream=1
+          roles:
+            - detect
+    snapshots:
+      enabled: True
+      timestamp: False
+      bounding_box: True
+      crop: True
+      retain:
+        default: 120
+
+    width: 704
+    height: 576
+    fps: 2
+  office:
+    ffmpeg:
+      inputs:
+        - path: rtsp://ai:ai123456@192.168.1.198:7001/5bdd2b73-2485-c4d8-c25b-45a65cd02e57?stream=1
+          roles:
+            - detect
+    snapshots:
+      enabled: True
+      timestamp: False
+      bounding_box: True
+      crop: True
+      retain:
+        default: 120
+
+    width: 480
+    height: 360
+    fps: 7
+
+
+  garage:
+    ffmpeg:
+      inputs:
+        - path: rtsp://ai:ai123456@192.168.1.198:7001/f845e60e-5170-c5e3-bd88-c4f17d60791b?stream=1
+          roles:
+            - detect
+    snapshots:
+      enabled: True
+      timestamp: False
+      bounding_box: True
+      crop: True
+      retain:
+        default: 120
+
+    width: 720
+    height: 576
+    fps: 8
+
+
+
+
+  ptz:
+    ffmpeg:
+      inputs:
+        - path: rtsp://ai:ai123456@192.168.1.198:7001/20e853fe-ab9e-6542-d603-bcc1e427e269?stream=1
+          roles:
+            - detect
+    snapshots:
+      enabled: True
+      timestamp: False
+      bounding_box: True
+      crop: True
+      retain:
+        default: 120
+
+    width: 720
+    height: 576
+    fps: 8
+
+
+
+
+
+objects:
+  track:
+    - person
+    - cat
+    - car
+    - truck

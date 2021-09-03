@@ -1,0 +1,44 @@
+OSIDS - OPEN SOURCE INTRUSION DETECTION SYSTEM
+AUGUST 03 2021
+GUERRILLA DYNAMICS, INC.
+
+FREE AS IN FREEDOM AS PER THE GREAT STALLMAN.
+
+CONCEPT:
+The idea behind OSIDS is to create a framework of sensors, plugins, software and unique hardware for the purpose of intrusion detection and situational awareness.
+OSIDS aim to encompass everything from physical intrusion, cyber alerts and other sensor data bridging the gap between physical, rf and digital in your area of operation. 
+
+DETECTION Overview:
+This is an embedded device running open source software frigate which is an object detection framework on your sensor feeds with the ability to send notifications via pushover.
+The alert settings are granular to each camera and object specified with rate limiting, snapshot of the event with bounding boxes.
+This system is used offline for reliable physical intrusion detection across your perimeter provided you have a camera feed there.
+Node-red is used as the method of linking the detection/alert/annunciator.
+Frigate uses a lot of cpu resouces or it makes use of a special AI chip released by google. (not to be run on a regular pi without an add-on chip)
+
+How it works:
+Frigate monitors the camera feeds 24/7 and uses the COCO dataset to detect objects in frames reliably.
+I am then taking the output from frigate and filtering it inside of node-red to send pushover notifications.
+
+UPCOMING:
+OSIDS MK1 is the first generation of an all in one hardware device that can handle this task without any programming knowledge.
+Simply connect ethernetand USB C power to your OSIDS MK1 and its capable of running all of the OSIDS framework at one time.
+
+Background services:
+mqtt
+node-red
+frigate
+
+TODO:
+Integrate with Kismet.
+Integrate ATAK as a plugin.
+Integrate vehicle make/model api as a plugin.
+
+ANNUNCIATOR Overview: Audible TTS Alerting
+The annunciator is a plugin for talkkonnect transceivers. It works by using webhooks and TTS 
+to play text to speech in mumble channels with the talkkonnect software.
+
+TRANSCEIVER Overview: Digital RF Transceiver
+Relay RF comms over mumble - setup VOX on your radio for 2 way comms.
+Purpose built transceiver software for embedded machines (pi) have all appropriate connections setup to soundcard.
+Follow the install.sh to setup on your new build. 
+Use as police scanner or mumble -> radio / radio -> mumble

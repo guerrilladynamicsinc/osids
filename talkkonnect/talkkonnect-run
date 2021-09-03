@@ -1,0 +1,10 @@
+#!/bin/bash 
+if pgrep -x "talkkonnect" 
+then
+echo "running"
+else
+sleep 1 
+sleep 2 
+/home/talkkonnect/bin/talkkonnect
+curl http://localhost:8080/?command=StartTransmitting &
+fi
