@@ -1,0 +1,5 @@
+docker exec -it gotify-webhook apk add bash
+docker exec -it gotify-webhook apk add python3
+docker exec -it gotify-webhook apk add curl
+docker exec -it gotify-webhook pip3 install requests
+

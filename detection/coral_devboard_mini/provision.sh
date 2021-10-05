@@ -39,6 +39,8 @@ mdt exec sudo chown -Rv mendel:mendel /home/mendel
 mdt exec sudo cp OSIDS/detection/coral_devboard_mini/frigate-config.yml /media/frigate/config.yml
 mdt exec "sudo docker cp OSIDS/detection/coral_devboard_mini/frigate2pushover.json node-red:/data/flows.json"
 mdt exec "sudo docker restart node-red"
+#install gotify
+docker run  -d --restart=always -p 7005:80 -e TZ="America/New_York" -v /docker/gotify/data:/app/data gotify/server:armv7
 #install frigate
 mdt exec sudo docker run -d --privileged --restart=unless-stopped --name frigate --mount type=tmpfs,target=/tmp/cache,tmpfs-size=10000000000   --device /dev/bus/usb:/dev/bus/usb   --device /dev/dri/renderD128   -v /media/frigate:/media/frigate   -v /media/frigate/config.yml:/config/config.yml:ro   -v /etc/localtime:/etc/localtime:ro   -e FRIGATE_RTSP_PASSWORD='password'   -p 5000:5000   -p 1935:1935   blakeblackshear/frigate:0.8.4-aarch64
 mdt exec sudo touch /media/filebrowser.db

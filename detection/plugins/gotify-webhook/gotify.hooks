@@ -1,0 +1,47 @@
+[
+  {
+    "id": "gotify",
+    "execute-command": "/etc/webhook/gotify-webhook.sh",
+    "command-working-directory": "/etc/webhook/",
+          "pass-arguments-to-command":
+    [
+      {
+       	"source": "url",
+        "name": "message",
+        "envname": "MESSAGE"
+      },
+      {
+       	"source": "url",
+        "name": "token",
+        "envname": "TOKEN"
+      },
+      {
+       	"source": "url",
+        "name": "img",
+        "envname": "IMG"
+      },
+      {
+       	"source": "url",
+        "name": "server",
+        "envname": "SERVER"
+      },
+      {
+       	"source": "url",
+        "name": "pushovertoken",
+        "envname": "PUSHOVERTOKEN"
+      },
+      {
+       	"source": "url",
+        "name": "pushoveruser",
+        "envname": "PUSHOVERUSER"
+      },
+      {
+        "source": "url",
+        "name": "desc",
+        "envname": "DESC"
+      }
+
+
+   ]
+  }
+]
